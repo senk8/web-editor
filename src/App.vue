@@ -72,9 +72,7 @@
     <router-view />
   </v-main>
 
-  <v-footer dark app>
-    Vuetify
-  </v-footer>
+  <Footer />
 
   </v-app>
 </template>
@@ -82,11 +80,14 @@
 
 
 <script>
-//import HelloWorld from './components/HelloWorld';
-//import TextField from './components/TextField';
+//import Header from './components/Header';
+import Footer from './components/Footer';
+//import Drawer from './components/Drawer';
+
 export default {
   name: 'App',
   components: {
+    Footer
   },
   data: () => ({
       drawer:false,
