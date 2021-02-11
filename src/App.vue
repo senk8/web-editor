@@ -1,63 +1,54 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-      <TextField/>
-    </v-main>
+<v-app>
+  <v-navigation-drawer v-model="drawer" app clipped>
+  </v-navigation-drawer>
+  <v-app-bar dark app clipped-left>
+    <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
+    <v-toolbar-title>Vuetify</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items>
+    <v-btn text outlined> Save </v-btn>
+    <v-btn text outlined> New </v-btn>
+    <v-menu offset-y>
+      <template v-slot:activator="{on}">
+      <v-btn v-on="on" text>menu<v-icon>mdi-menu-down</v-icon></v-btn>
+      </template>
+      <v-list>
+        <v-list-item v-for="option in options" :key="option">
+          <v-list-item-icon>
+          <v-icon>{{ option.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ option.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+    </v-toolbar-items>
+  </v-app-bar>
+  <v-footer dark app>
+    Vuetify
+  </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import TextField from './components/TextField';
+//import HelloWorld from './components/HelloWorld';
+//import TextField from './components/TextField';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
-    TextField,
   },
 
   data: () => ({
-    //
+      drawer:false,
+      options:[
+        {title:"Setting",icon:"mdi-vuetify"}
+        ,{title:"Import",icon:"mdi-github"}
+        ,{title:"Export",icon:"mdi-github"}
+      ]
   }),
 };
 </script>
