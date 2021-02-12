@@ -37,3 +37,33 @@
 
   </v-navigation-drawer>
 </template>
+
+
+<script>
+export default {
+  name: 'Drawer',
+  components: {
+    Footer
+  },
+  props:{
+      drawer:false
+  },
+  data: () => ({
+      nav_lists:[
+        {
+          name:"Setting",
+          icon:"mdi-vuetify",
+          lists:['Quick Start','Pre-made layouts'],
+        }
+        ,{
+          name:"Import",
+          icon:"mdi-github",
+        }
+        ,{
+          name:"Export",
+          icon:"mdi-github",
+        }
+      ]
+  }),
+};
+</script>

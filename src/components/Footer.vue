@@ -1,5 +1,5 @@
 <template>
   <v-footer dark app>
-    Vuetify
+      &copy; Senk
   </v-footer>
 </template>

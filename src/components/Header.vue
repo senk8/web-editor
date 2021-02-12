@@ -26,5 +26,35 @@
 
     </v-toolbar-items>
   </v-app-bar>   
-
 </template>
+
+
+
+
+<script>
+export default {
+  name: 'Header',
+  props:{
+      drawer:false
+  },
+  data: () => ({
+    options:[
+        {
+            name:"Setting",
+            icon:"mdi-vuetify",
+            link:"/editor"
+        }
+        ,{
+            name:"Import",
+            icon:"mdi-github",
+            link:"/about"
+        }
+        ,{
+            name:"Export",
+            icon:"mdi-github",
+            link:"/"
+        }
+   ],
+  }),
+};
+</script>

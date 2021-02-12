@@ -1,7 +1,7 @@
 <template>
 <v-app>
+  <!-- NavDrawer  -->
   <v-navigation-drawer v-model="drawer" app clipped>
-
   <v-container>
     <v-list-item>
       <v-list-item-content>
@@ -20,7 +20,6 @@
     no-action
     :append-icon="nav_list.lists ? undefined : '' " 
     >
-
       <template v-slot:activator>
         <v-list-item-content>
           <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
@@ -40,9 +39,10 @@
   </v-navigation-drawer>
 
 
+  <!-- Header  -->
   <v-app-bar dark app clipped-left>
     <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
-    <v-toolbar-title>Vuetify</v-toolbar-title>
+    <v-toolbar-title>WEditor</v-toolbar-title>
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
